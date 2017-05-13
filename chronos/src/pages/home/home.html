@@ -8,6 +8,13 @@
 
 <ion-content class="card-background-page">
   Status: <span>{{(currentUser | async)?.status}}</span>
+  <button ion-button (click)="setUserStatus('free');">Free</button>
+  <button ion-button color="danger" (click)="setUserStatus('busy');">Busy</button>
+  <ion-item>
+    <ion-label>Start Time</ion-label>
+    <ion-datetime displayFormat="MM/DD/YYYY hh:mm a" pickerFormat="MM/DD/YYYY hh mm A" [(ngModel)]="currentUser.newUntil"></ion-datetime>
+  </ion-item>
+
   Until: <span>{{(currentUser | async)?.until}}</span>
   Friends 
   <ul>
@@ -24,8 +31,9 @@
 
 
 
-<ion-list *ngFor="let friend of friends | async">
-  <ion-item>
+
+<ion-list >
+  <ion-item *ngFor="let friend of friends | async">
     <ion-avatar item-left>
       <img src="img/avatar-finn.png">
     </ion-avatar>

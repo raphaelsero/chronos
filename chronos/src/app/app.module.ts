@@ -10,6 +10,7 @@ import { File } from '@ionic-native/file';
 import { Transfer } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
+import {MomentModule} from 'angular2-moment';
 
 import { environment } from '../environments/environment';
 
@@ -23,6 +24,7 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
+    MomentModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule, // imports firebase/database, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
@@ -35,7 +37,7 @@ import { HomePage } from '../pages/home/home';
   ],
   providers: [
     StatusBar,
-    SplashScreen,
+    SplashScreen,    
     File,
     Transfer,
     Camera,
