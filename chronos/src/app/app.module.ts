@@ -20,8 +20,13 @@ import { HomePage } from '../pages/home/home';
 import { MainPage } from '../pages/main/main';
 import { NowPage } from '../pages/now/now';
 import { SchedulePage } from '../pages/schedule/schedule';
-
 import { TabsPage } from '../pages/tabs/tabs';
+
+import { LoginPage } from '../pages/login/login';
+import { SignupPage } from '../pages/signup/signup';
+import { ProfilePage } from '../pages/profile/profile';
+import { SearchPage } from '../pages/search/search';
+import { SettingsPage } from '../pages/settings/settings';
 
 declare let require: any;
 const Highcharts = require('highcharts');
@@ -34,7 +39,12 @@ const Highcharts = require('highcharts');
     MainPage,
     TabsPage,
     SchedulePage,
-    NowPage
+    NowPage,
+    LoginPage,
+    SignupPage,
+    ProfilePage,
+    SearchPage,
+    SettingsPage
   ],
   imports: [
     BrowserModule,
@@ -52,7 +62,12 @@ const Highcharts = require('highcharts');
     MainPage,
     TabsPage,
     SchedulePage,
-    NowPage
+    NowPage,
+    LoginPage,
+    SignupPage,
+    ProfilePage,
+    SearchPage,
+    SettingsPage
   ],
   providers: [
     StatusBar,

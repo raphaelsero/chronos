@@ -5,14 +5,37 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>Now</ion-title>
+    <button ion-button clear>
+      <ion-icon name="person"></ion-icon>
+    </button>
+    <ion-title>
+      Now
+    </ion-title>
   </ion-navbar>
-
 </ion-header>
-
-
-<ion-content padding>
-
+<ion-content padding id="page8">
+  <button ion-button clear color="balanced" block>
+    Free
+  </button>
+  <button ion-button clear color="assertive" block>
+    Busy
+  </button>
+  <form id="now-form6">
+    <ion-item id="now-input8">
+      <ion-label>
+        From
+      </ion-label>
+      <ion-input type="time" placeholder=""></ion-input>
+    </ion-item>
+    <ion-item id="now-input9">
+      <ion-label>
+        Until
+      </ion-label>
+      <ion-input type="time" placeholder=""></ion-input>
+    </ion-item>
+  </form>
+  <button id="now-button11" ion-button outline color="positive" block>
+    Save
+  </button>
 </ion-content>

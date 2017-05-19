@@ -5,14 +5,51 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>Schedule</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Calendar
+    </ion-title>
   </ion-navbar>
-
 </ion-header>
-
-
-<ion-content padding>
-
+<ion-content padding id="page9">
+  <ion-list id="calendar-list5">
+    <ion-item-divider color="light" id="calendar-list-item-divider3">
+      Days of the week
+    </ion-item-divider>
+  </ion-list>
+  <form id="calendar-form8">
+    <button id="calendar-button12" ion-button clear color="balanced" block>
+      Free
+    </button>
+    <button id="calendar-button13" ion-button clear color="assertive" block>
+      Busy
+    </button>
+    <ion-item id="calendar-input11">
+      <ion-label>
+        From
+      </ion-label>
+      <ion-input type="time" placeholder=""></ion-input>
+    </ion-item>
+    <ion-item id="calendar-input13">
+      <ion-label>
+        Until
+      </ion-label>
+      <ion-input type="time" placeholder=""></ion-input>
+    </ion-item>
+    <ion-item id="calendar-textarea1">
+      <ion-label>
+        Status
+      </ion-label>
+      <ion-textarea placeholder=""></ion-textarea>
+    </ion-item>
+    <button id="calendar-button14" ion-button clear color="calm" block>
+      Add Event
+    </button>
+  </form>
+  <button id="calendar-button10" ion-button outline color="positive" block>
+    Set Weekly Schedule
+  </button>
 </ion-content>
