@@ -11,19 +11,34 @@ import { Transfer } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
 import {MomentModule} from 'angular2-moment';
+import { ChartModule, ChartComponent } from 'angular2-highcharts';
 
 import { environment } from '../environments/environment';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { MainPage } from '../pages/main/main';
+import { NowPage } from '../pages/now/now';
+import { SchedulePage } from '../pages/schedule/schedule';
+
+import { TabsPage } from '../pages/tabs/tabs';
+
+declare let require: any;
+const Highcharts = require('highcharts');
+
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    MainPage,
+    TabsPage,
+    SchedulePage,
+    NowPage
   ],
   imports: [
     BrowserModule,
+    ChartModule.forRoot(Highcharts),    
     MomentModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule, // imports firebase/database, only needed for database features
@@ -33,7 +48,11 @@ import { HomePage } from '../pages/home/home';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    MainPage,
+    TabsPage,
+    SchedulePage,
+    NowPage
   ],
   providers: [
     StatusBar,
