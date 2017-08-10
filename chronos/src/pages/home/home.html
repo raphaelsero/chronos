@@ -7,7 +7,7 @@
 <ion-header>
   <ion-navbar>
     <button ion-button clear>
-      <ion-icon name="person"></ion-icon>
+      <ion-icon ios="ios-search" md="md-search" on-click="goToSearch()"></ion-icon>
     </button>
     <ion-title>
       Home
@@ -17,50 +17,63 @@
 <ion-content padding id="page7">
   <ion-list id="home-list4">
     <ion-item-divider color="light" id="home-list-item-divider2">
-      FREE
+      <ion-label color="secondary">FREE</ion-label>
     </ion-item-divider>
-  </ion-list>
-  <ion-list id="home-list9">
-    <ion-item-sliding>
-      <ion-item color="balanced" on-click="goToProfile()" id="home-list-item14">
-        <ion-avatar item-left>
-          <img />
-        </ion-avatar>
-        <h2>
-          Username
-        </h2>
+    <ion-list id="home-list9" *ngFor="let friend of friends | async">
+      <ion-item-sliding>
+        <ion-item color="balanced" on-click="goToProfile()" id="home-list-item14">
+          <ion-avatar item-left>
+            <img />
+          </ion-avatar>
+          <h2>
+            {{friend.val().username}}
+          </h2>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="secondary">
+              <ion-icon ios="ios-call" md="md-call"></ion-icon>
+          </button>
+          <button ion-button color="default">
+              <ion-icon ios="ios-chatbubbles" md="md-chatbubbles"></ion-icon>
+          </button>
+          <button ion-button color="danger">
+              <ion-icon ios="ios-notifications" md="md-notifications"></ion-icon>
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+      <ion-item id="home-list-item-container8">
+        <div id="home-markdown11" class="show-list-numbers-and-dots">
+          <p style="margin-top:0px;color:#000000;">
+            status
+          </p>
+        </div>
+          <ion-grid>
+            <ion-row>
+              <ion-col col-3>
+                <ion-icon color="secondary" ios="ios-call" md="md-call"></ion-icon>
+              </ion-col>
+              <ion-col col-3>
+                <ion-icon color="primary" ios="ios-chatbubbles" md="md-chatbubbles"></ion-icon>
+              </ion-col>
+              <ion-col col-3>
+                <ion-icon color="danger" ios="ios-notifications" md="md-notifications"></ion-icon>
+              </ion-col>
+              <ion-col col-3>
+                <ion-icon color="energized" ios="ios-thumbs-up" md="md-thumbs-up"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </ion-grid>        
       </ion-item>
-      <ion-item-options side="left">
-        <button ion-button color="balanced">
-          Call
-        </button>
-        <button ion-button color="positive">
-          Text
-        </button>
-        <button ion-button color="energized">
-          Fav
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-    <ion-item id="home-list-item-container8">
-      <div id="home-markdown11" class="show-list-numbers-and-dots">
-        <p style="margin-top:0px;color:#000000;">
-          status
-        </p>
-      </div>
-    </ion-item>
-    <ion-item color="none" id="home-list-item20">
-      icons
-    </ion-item>
+    </ion-list>
   </ion-list>
   <div class="spacer" style="width:300px;height:20px;" id="home-spacer4"></div>
   <ion-list id="home-list8">
     <ion-item-divider color="light" id="home-list-item-divider5">
-      BUSY
+      <ion-label color="danger">BUSY</ion-label>
     </ion-item-divider>
     <ion-list id="home-list10">
       <ion-item-sliding>
-        <ion-item color="assertive" id="home-list-item3">
+        <ion-item color="assertive" on-click="goToProfile()" id="home-list-item3">
           <ion-avatar item-left>
             <img />
           </ion-avatar>
@@ -68,15 +81,15 @@
             Username
           </h2>
         </ion-item>
-        <ion-item-options side="left">
-          <button ion-button color="balanced">
-            Call
+        <ion-item-options side="right">
+          <button ion-button color="secondary">
+            <ion-icon ios="ios-call" md="md-call"></ion-icon>
           </button>
-          <button ion-button color="positive">
-            Text
+          <button ion-button color="default">
+            <ion-icon ios="ios-chatbubbles" md="md-chatbubbles"></ion-icon>
           </button>
-          <button ion-button color="energized">
-            Fav
+          <button ion-button color="danger">
+            <ion-icon ios="ios-notifications" md="md-notifications"></ion-icon>
           </button>
         </ion-item-options>
       </ion-item-sliding>
@@ -86,9 +99,22 @@
             status
           </p>
         </div>
-      </ion-item>
-      <ion-item color="none" id="home-list-item30">
-        icons
+        <ion-grid>
+          <ion-row>
+            <ion-col col-3>
+              <ion-icon color="secondary" ios="ios-call" md="md-call"></ion-icon>
+            </ion-col>
+            <ion-col col-3>
+              <ion-icon color="primary" ios="ios-chatbubbles" md="md-chatbubbles"></ion-icon>
+            </ion-col>
+            <ion-col col-3>
+              <ion-icon color="danger" ios="ios-notifications" md="md-notifications"></ion-icon>
+            </ion-col>
+            <ion-col col-3>
+              <ion-icon color="energized" ios="ios-thumbs-up" md="md-thumbs-up"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>        
       </ion-item>
     </ion-list>
   </ion-list>

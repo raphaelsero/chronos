@@ -6,34 +6,31 @@
 -->
 <ion-header>
   <ion-navbar>
-    <button ion-button clear>
-      <ion-icon name="person"></ion-icon>
-    </button>
     <ion-title>
       Now
     </ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page8">
-  <button ion-button clear color="balanced" block>
+  <button ion-button clear color="secondary" block>
     Free
   </button>
-  <button ion-button clear color="assertive" block>
+  <button ion-button clear color="danger" block>
     Busy
   </button>
   <form id="now-form6">
-    <ion-item id="now-input8">
-      <ion-label>
-        From
-      </ion-label>
-      <ion-input type="time" placeholder=""></ion-input>
-    </ion-item>
-    <ion-item id="now-input9">
-      <ion-label>
-        Until
-      </ion-label>
-      <ion-input type="time" placeholder=""></ion-input>
-    </ion-item>
+    <ion-item>
+      <ion-label>From</ion-label>
+      <ion-datetime displayFormat="h:mm A" pickerFormat="h:mm A"></ion-datetime>
+    </ion-item>    
+    <ion-item>
+      <ion-label>Until</ion-label>
+      <ion-datetime displayFormat="h:mm A" pickerFormat="h:mm A"></ion-datetime>
+    </ion-item>    
+    <ion-item>
+      <ion-label floating>Status</ion-label>
+      <ion-textarea></ion-textarea>
+    </ion-item> 
   </form>
   <button id="now-button11" ion-button outline color="positive" block>
     Save

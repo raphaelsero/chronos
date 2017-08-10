@@ -17,13 +17,31 @@
 <ion-content padding id="page10">
   <form id="search-form9">
     <ion-searchbar placeholder="" name="" id="search-search1"></ion-searchbar>
-    <ion-item color="none" id="search-list-item7">
-      <ion-avatar item-left>
-        <img />
-      </ion-avatar>
-      <h2>
-        Item
-      </h2>
-    </ion-item>
   </form>
+
+  <ion-list id="home-list9">
+    <ion-item-sliding>
+      <ion-item color="balanced" on-click="goToProfile()" id="home-list-item14">
+        <ion-avatar item-left>
+          <img />
+        </ion-avatar>
+        <h2>
+          Username
+        </h2>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="primary">
+            <ion-icon ios="ios-person-add" md="md-person-add"></ion-icon>
+        </button>       
+      </ion-item-options>
+    </ion-item-sliding>
+    <ion-item>
+      <div class="show-list-numbers-and-dots">
+        <p style="margin-top:0px;color:#000000;">
+          bio
+        </p>
+      </div>         
+    </ion-item>
+  </ion-list>
+  
 </ion-content>

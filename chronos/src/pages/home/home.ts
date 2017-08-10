@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { SearchPage } from '../search/search';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 /**
  * Generated class for the HomePage page.
  *
@@ -13,8 +14,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'home.html',
 })
 export class HomePage {
+  friends: FirebaseListObservable<any>;
+  userIDs: any;
+  constructor(public navCtrl: NavController, public navParams: NavParams, db: AngularFireDatabase) {
+      this.friends = db.list('/uid/friends', { preserveSnapshot: true });
+      this.friends.subscribe(snapshots => {
+        snapshots.forEach(snapshot => {
+          console.log(snapshot.val().username);
+        });       
+      });
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  }
+
+  goToSearch(){
+    this.navCtrl.push(SearchPage);
+  }
+
+  goToProfile(){
+    console.log("go to page");
   }
 
   ionViewDidLoad() {

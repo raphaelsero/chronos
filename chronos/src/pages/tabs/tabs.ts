@@ -3,6 +3,7 @@ import { IonicPage, NavController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { NowPage } from '../now/now';
 import { SchedulePage } from '../schedule/schedule';
+import { ProfilePage } from '../profile/profile';
 
 /**
  * Generated class for the TabsPage tabs.
@@ -20,6 +21,7 @@ export class TabsPage {
   homeRoot = HomePage;
   nowRoot = NowPage;
   scheduleRoot = SchedulePage;
+  profileRoot = ProfilePage;
 
 
   constructor(public navCtrl: NavController) {}

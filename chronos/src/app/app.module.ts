@@ -11,7 +11,6 @@ import { Transfer } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
 import {MomentModule} from 'angular2-moment';
-import { ChartModule, ChartComponent } from 'angular2-highcharts';
 
 import { environment } from '../environments/environment';
 
@@ -28,8 +27,6 @@ import { ProfilePage } from '../pages/profile/profile';
 import { SearchPage } from '../pages/search/search';
 import { SettingsPage } from '../pages/settings/settings';
 
-declare let require: any;
-const Highcharts = require('highcharts');
 
 
 @NgModule({
@@ -48,7 +45,6 @@ const Highcharts = require('highcharts');
   ],
   imports: [
     BrowserModule,
-    ChartModule.forRoot(Highcharts),    
     MomentModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule, // imports firebase/database, only needed for database features
