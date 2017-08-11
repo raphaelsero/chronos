@@ -6,8 +6,14 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar>    
     <ion-title>Profile</ion-title>
+
+    <ion-buttons end>
+      <button on-click="goToSettings()" ion-button clear right>
+        <ion-icon color="shaded2" ios="ios-cog" md="md-cog"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -15,26 +21,26 @@
 
 <ion-content class="card-background-page">
 
-<ion-card>
-  <img src=""/>
-  <ion-card-content>
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="">
-      </ion-avatar>
-      <h2>Username</h2>
-    </ion-item>
-    
-    <ion-card-title>
-      bio
-    </ion-card-title>
-    <div id="home-markdown11" class="show-list-numbers-and-dots">
-      <p style="margin-top:0px;color:#000000;">
-        status
-      </p>
-    </div>
+  <ion-card>
+    <img src=""/>
+    <ion-card-content>
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="">
+        </ion-avatar>
+        <h2>Username</h2>
+      </ion-item>
+      
+      <ion-card-title>
+        bio
+      </ion-card-title>
+      <div id="home-markdown11" class="show-list-numbers-and-dots">
+        <p style="margin-top:0px;color:#000000;">
+          status
+        </p>
+      </div>
 
-  </ion-card-content>
-</ion-card>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>

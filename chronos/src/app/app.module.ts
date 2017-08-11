@@ -26,6 +26,7 @@ import { SignupPage } from '../pages/signup/signup';
 import { ProfilePage } from '../pages/profile/profile';
 import { SearchPage } from '../pages/search/search';
 import { SettingsPage } from '../pages/settings/settings';
+import { EventPage } from '../pages/event/event';
 
 
 
@@ -41,7 +42,8 @@ import { SettingsPage } from '../pages/settings/settings';
     SignupPage,
     ProfilePage,
     SearchPage,
-    SettingsPage
+    SettingsPage,
+    EventPage
   ],
   imports: [
     BrowserModule,
@@ -63,7 +65,8 @@ import { SettingsPage } from '../pages/settings/settings';
     SignupPage,
     ProfilePage,
     SearchPage,
-    SettingsPage
+    SettingsPage,
+    EventPage
   ],
   providers: [
     StatusBar,

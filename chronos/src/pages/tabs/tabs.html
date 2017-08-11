@@ -1,7 +1,6 @@
 <ion-tabs>
-    <ion-tab [root]="homeRoot" tabTitle="Home" tabIcon="home"></ion-tab>
+    <!-- <ion-tab [root]="loginRoot" tabTitle="Home" tabIcon="home"></ion-tab>
     <ion-tab [root]="nowRoot" tabTitle="Now" tabIcon="clock"></ion-tab>
-    <!-- <ion-tab [root]="scheduleRoot" tabTitle="Schedule" tabIcon="calendar"></ion-tab> -->
-    <ion-tab [root]="profileRoot" tabTitle="Profile" tabIcon="person"></ion-tab> 
-    
+    <ion-tab [root]="profileRoot" tabTitle="Profile" tabIcon="person"></ion-tab>  -->
+      <ion-tab ng-if="loggedIn" *ngFor="let tab of tabs" [root]="tab.root" [tabTitle]="tab.title" [tabIcon]="tab.icon"></ion-tab>
 </ion-tabs>

@@ -12,27 +12,23 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page8">
-  <button ion-button clear color="secondary" block>
-    Free
-  </button>
-  <button ion-button clear color="danger" block>
-    Busy
-  </button>
-  <form id="now-form6">
-    <ion-item>
-      <ion-label>From</ion-label>
-      <ion-datetime displayFormat="h:mm A" pickerFormat="h:mm A"></ion-datetime>
-    </ion-item>    
-    <ion-item>
-      <ion-label>Until</ion-label>
-      <ion-datetime displayFormat="h:mm A" pickerFormat="h:mm A"></ion-datetime>
-    </ion-item>    
-    <ion-item>
-      <ion-label floating>Status</ion-label>
-      <ion-textarea></ion-textarea>
-    </ion-item> 
-  </form>
-  <button id="now-button11" ion-button outline color="positive" block>
+  <ion-buttons>
+    <button on-click="setFree(user.free)" *ngIf="user.free" start ion-button clear color="secondary">
+      <b>FREE</b>
+    </button>
+    <button on-click="setFree(user.free)" *ngIf="!user.free" end ion-button clear color="danger">
+      <b>BUSY</b>
+    </button>
+  </ion-buttons>  
+  <ion-item>       
+    <ion-label>Until</ion-label>
+    <ion-datetime [(ngModel)]="user.until" displayFormat="h:mm A" pickerFormat="h:mm A"></ion-datetime>
+  </ion-item>    
+  <ion-item>
+    <ion-label floating>Status</ion-label>
+    <ion-textarea [(ngModel)]="user.status"></ion-textarea>
+  </ion-item> 
+  <button on-click="save()" id="now-button11" ion-button outline color="positive" block>
     Save
   </button>
 </ion-content>

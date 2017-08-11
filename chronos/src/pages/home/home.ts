@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { SearchPage } from '../search/search';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { DatePipe } from '@angular/common';
+import { SearchPage } from '../search/search';
+import { EventPage } from '../event/event';
+import { ProfilePage } from '../profile/profile';
+
 /**
  * Generated class for the HomePage page.
  *
@@ -32,7 +36,10 @@ export class HomePage {
   }
 
   goToProfile(){
-    console.log("go to page");
+    this.navCtrl.push(ProfilePage);
+  }
+  goToEvent(){
+    this.navCtrl.push(EventPage);
   }
 
   ionViewDidLoad() {
