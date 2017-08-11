@@ -13,7 +13,7 @@ import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = NowPage;
+  rootPage:any = TabsPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

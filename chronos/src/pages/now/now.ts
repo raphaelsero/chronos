@@ -15,6 +15,7 @@ import { AngularFireDatabase, FirebaseObjectObservable, FirebaseListObservable }
 })
 export class NowPage {
     fireUser: FirebaseObjectObservable<any>;
+    fireUserSafe: FirebaseObjectObservable<any>;    
     fireUserFriends: FirebaseListObservable<any[]>;
     user: Dynamic = {};
     userFriends: Dynamic = [];
@@ -40,6 +41,7 @@ export class NowPage {
     });
     console.log("friends []");
     console.log(this.userFriends);
+    this.fireUserSafe = this.fireUser;
   }
 
   save(){
@@ -57,9 +59,14 @@ export class NowPage {
     });
   }
 
+  cancel(){
+    this.fireUser = this.fireUserSafe;
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad NowPage');
   }
+  
   setFree(bool){
     this.user.free = !bool;
     console.log(this.user.free);

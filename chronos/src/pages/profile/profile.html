@@ -8,39 +8,61 @@
 
   <ion-navbar>    
     <ion-title>Profile</ion-title>
-
-    <ion-buttons end>
+     <!-- <ion-buttons end>
       <button on-click="goToSettings()" ion-button clear right>
         <ion-icon color="shaded2" ios="ios-cog" md="md-cog"></ion-icon>
-      </button>
-    </ion-buttons>
+      </button> 
+    </ion-buttons> -->
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content class="card-background-page">
 
-  <ion-card>
+  <ion-card no-padding>
     <img src=""/>
     <ion-card-content>
       <ion-item>
         <ion-avatar item-start>
           <img src="">
         </ion-avatar>
-        <h2>Username</h2>
+        <ion-buttons end style="margin-top: -26px;">
+          <button on-click="goToSettings()" style="font-size: 12px;" ion-button outline><b>Edit Profile</b></button>                
+        </ion-buttons>        
+        
+        <span style="font-size:20px; font-weight:bold;">{{user.username}}</span>                    
+        <h2>@{{user.username}}</h2>
+        <div>
+          <span style="font-size:15px; font-weight:bold; text-decoration: underline;">close friends {{userFriends.length}}</span>                    
+        </div>
       </ion-item>
       
       <ion-card-title>
-        bio
-      </ion-card-title>
-      <div id="home-markdown11" class="show-list-numbers-and-dots">
         <p style="margin-top:0px;color:#000000;">
-          status
+          {{user.bio}}
+        </p>
+      </ion-card-title>
+      <div>
+        <p style="margin-top:0px;color:#909090;">
+          {{user.location}}
         </p>
       </div>
 
     </ion-card-content>
   </ion-card>
+  <div>
+    <ion-segment [(ngModel)]="content">
+      <ion-segment-button value="events">
+        Events
+      </ion-segment-button>
+      <ion-segment-button value="comments">
+        Comments
+      </ion-segment-button>
+      <ion-segment-button value="media">
+        Media
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  
 
 </ion-content>
