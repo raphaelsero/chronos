@@ -8,11 +8,19 @@
 
   <ion-navbar>
     <ion-title>Event</ion-title>
+    <ion-buttons end>
+      <button (click)="goToNow()" ion-button clear>
+        <ion-icon ios="ios-add" md="md-add" ></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <!-- <div id="container">
+    <chart [options]="options" (selection)="onChartSelection($event)"> </chart>
+  </div> -->
 
 </ion-content>

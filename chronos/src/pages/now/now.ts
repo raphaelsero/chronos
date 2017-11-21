@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2/database';
+import { MomentModule } from 'angular2-moment/module'; 
+import * as moment from 'moment';
 
 /**
  * Generated class for the NowPage page.
@@ -20,13 +22,15 @@ export class NowPage {
     user: Dynamic = {};
     userFriends: Dynamic = [];
     db: AngularFireDatabase;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, db: AngularFireDatabase) {
     this.db = db;
     this.fireUser = db.object('/uid2', { preserveSnapshot: true });
     this.fireUser.subscribe(snapshot => {
       this.user.status = snapshot.val().status;
-      this.user.until = snapshot.val().until;
+      this.user.until = moment().local().format(snapshot.val().until);
       this.user.free = snapshot.val().free;
+      this.user.changed = false;
       console.log("user");
       console.log(this.user);      
     });
@@ -45,8 +49,9 @@ export class NowPage {
   }
 
   save(){
-    this.fireUser.update({status: this.user.status, until: this.user.until});
+    this.fireUser.update({status: this.user.status, free: this.user.free, until: this.user.until});
     this.updateFriends();
+    this.user.changed = false;
   }
 
   updateFriends(){
@@ -55,12 +60,20 @@ export class NowPage {
       console.log(this.db);
       var fireUserInFriendsFriendslist = this.db.object(friendID + "/friends/uid2", { preserveSnapshot: true });   
       console.log();  
-      fireUserInFriendsFriendslist.update({status: this.user.status, until: this.user.until}); 
+      fireUserInFriendsFriendslist.update({status: this.user.status, free: this.user.free, until: this.user.until}); 
     });
   }
 
   cancel(){
-    this.fireUser = this.fireUserSafe;
+    this.user.changed = false;
+    this.fireUser.subscribe(snapshot => {
+      this.user.status = snapshot.val().status;
+      this.user.until = snapshot.val().until;
+      this.user.free = snapshot.val().free;
+      this.user.changed = false;
+      console.log("user");
+      console.log(this.user);      
+    });    
   }
 
   ionViewDidLoad() {

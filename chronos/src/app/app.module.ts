@@ -10,6 +10,10 @@ import { File } from '@ionic-native/file';
 import { Transfer } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
+import { CallNumber } from '@ionic-native/call-number';
+import { ChartModule } from 'angular2-highcharts';
+import Rx from 'rxjs/Rx';
+
 import {MomentModule} from 'angular2-moment';
 
 import { environment } from '../environments/environment';
@@ -27,6 +31,7 @@ import { ProfilePage } from '../pages/profile/profile';
 import { SearchPage } from '../pages/search/search';
 import { SettingsPage } from '../pages/settings/settings';
 import { EventPage } from '../pages/event/event';
+import { TimerComponent } from '../components/timer/timer';
 
 
 
@@ -43,11 +48,17 @@ import { EventPage } from '../pages/event/event';
     ProfilePage,
     SearchPage,
     SettingsPage,
-    EventPage
+    EventPage,
+    TimerComponent
   ],
   imports: [
     BrowserModule,
     MomentModule,
+    ChartModule.forRoot(
+      require('highcharts'),
+      require('highcharts/modules/exporting'),
+      require('highcharts/highcharts-more')
+    ),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule, // imports firebase/database, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
@@ -75,6 +86,7 @@ import { EventPage } from '../pages/event/event';
     Transfer,
     Camera,
     FilePath,
+    CallNumber,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

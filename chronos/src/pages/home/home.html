@@ -4,6 +4,7 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
+
 <ion-header>
   <ion-navbar>
     <button ion-button clear>
@@ -19,7 +20,8 @@
     <ion-label color="secondary"><b>FREE</b></ion-label>
   </ion-item-divider>
   <ion-list id="home-list9" >
-    <ion-item *ngFor="let friend of friends | async" id="home-list-item14" text-wrap>
+    <span *ngFor="let friend of friends | async">
+      <ion-item *ngIf="friend.val().free" text-wrap>
       <ion-avatar item-left on-click="goToProfile()">
         <img />
       </ion-avatar>
@@ -27,7 +29,8 @@
         <span style="font-size:20px; font-weight:bold;">{{friend.val().username}}</span>
         @{{friend.val().username}}
         <span style="color: #909090; font-weight:bold;">• 23hr</span>
-      </h3>          
+      </h3>   
+      <!-- <timer #timer timeInSeconds="600" style="margin-top: -29px;float: right;"></timer>              -->
       <div id="home-markdown11" class="show-list-numbers-and-dots">        
         <p style="margin-top:0px;color:#222;">
           Until: {{friend.val().until | date:'short'}}
@@ -39,7 +42,7 @@
       <ion-grid no-padding>
         <ion-row style="font-size: 12px">   
           <ion-col col-3>
-            <button ion-button clear color="secondary">
+            <button ion-button (click)="callNumber(friend.val().phonenumber)" clear color="secondary">
               <ion-icon ios="ios-call" md="md-call"></ion-icon>
             </button>          
           </ion-col>       
@@ -60,18 +63,21 @@
             </button>            
           </ion-col>
         </ion-row>
-      </ion-grid>            
-    </ion-item>      
+      </ion-grid> 
+      </ion-item>               
+    </span>  
   </ion-list>
     <ion-item-divider color="light" id="home-list-item-divider2">
     <ion-label color="danger"><b>BUSY</b></ion-label>
   </ion-item-divider>
   <ion-list id="home-list9" >
-    <ion-item *ngFor="let friend of friends | async" id="home-list-item14" text-wrap>
+    <span *ngFor="let friend of friends | async">
+    <ion-item *ngIf="!friend.val().free" text-wrap>
       <ion-avatar item-left on-click="goToProfile()">
         <img />
       </ion-avatar>
       <h3>
+      <timer #timer timeInSeconds="600" style="margin-top: -29px;float: right;"></timer>                     
         <span style="font-size:20px; font-weight:bold;">{{friend.val().username}}</span>
         @{{friend.val().username}}
         <span style="color: #909090; font-weight:bold;">• 23hr</span>
@@ -109,6 +115,7 @@
           </ion-col>
         </ion-row>
       </ion-grid>            
-    </ion-item>      
+    </ion-item>  
+    </span>    
   </ion-list>
 </ion-content>

@@ -1,5 +1,8 @@
 {
   "name": "chronos",
   "app_id": "f4122fd7",
-  "type": "ionic-angular"
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
 }
