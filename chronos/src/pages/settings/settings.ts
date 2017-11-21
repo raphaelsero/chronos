@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { SignupPage } from '../signup/signup';
 
 /**
  * Generated class for the SettingsPage page.
@@ -15,6 +16,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class SettingsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
+
+  logout(){
+    this.navCtrl.push(SignupPage);
   }
 
   ionViewDidLoad() {
