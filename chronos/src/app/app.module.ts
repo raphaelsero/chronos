@@ -11,6 +11,8 @@ import { Transfer } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
 import { CallNumber } from '@ionic-native/call-number';
+import { SMS } from '@ionic-native/sms';
+
 import { ChartModule } from 'angular2-highcharts';
 import Rx from 'rxjs/Rx';
 
@@ -87,6 +89,7 @@ import { TimerComponent } from '../components/timer/timer';
     Camera,
     FilePath,
     CallNumber,
+    SMS,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

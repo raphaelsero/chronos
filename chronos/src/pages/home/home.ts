@@ -2,6 +2,7 @@ import { Component , ViewChild} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { CallNumber } from '@ionic-native/call-number';
+import { SMS } from '@ionic-native/sms';
 
 import { DatePipe } from '@angular/common';
 import { SearchPage } from '../search/search';
@@ -27,8 +28,8 @@ export class HomePage {
   friends: FirebaseListObservable<any>;
   userIDs: any;
   call:CallNumber;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, db: AngularFireDatabase, c:CallNumber) {
+  sms: SMS;
+  constructor(public navCtrl: NavController, public navParams: NavParams, db: AngularFireDatabase, c:CallNumber, sms:SMS) {
     let myObeservable = Rx.Observable.interval(60000);
     myObeservable.subscribe(x => console.log(x));
 
@@ -56,6 +57,10 @@ export class HomePage {
   callNumber(number){
       console.log("calling " + number);
       this.call.callNumber(String(number), true);      
+  }
+
+  sendMessage(number){
+    this.sms.send(number, 'Test');    
   }
 
   goToSearch(){

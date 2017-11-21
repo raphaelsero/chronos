@@ -47,7 +47,7 @@
             </button>          
           </ion-col>       
           <ion-col col-3>
-            <button ion-button clear color="default">
+            <button ion-button (click)="sendMessage(friend.val().phonenumber)"clear color="default">
               <ion-icon ios="ios-chatbubbles" md="md-chatbubbles"></ion-icon>
             </button>
           </ion-col>                  
