@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { SettingsPage } from '../settings/settings';
 import { AngularFireDatabase, FirebaseObjectObservable, FirebaseListObservable } from 'angularfire2/database';
 
@@ -22,7 +22,7 @@ export class ProfilePage {
     userFriends: Dynamic = [];
     db: AngularFireDatabase;
     content: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, db: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, db: AngularFireDatabase, public modalCtrl: ModalController) {
     this.content = "events";
     this.fireUser = db.object('/uid3', { preserveSnapshot: true });
     this.fireUser.subscribe(snapshot => {
@@ -52,6 +52,11 @@ export class ProfilePage {
   goToSettings(){
     console.log("clicked");
     this.navCtrl.push(SettingsPage);
+  }
+
+  presentModal() {
+    let modal = this.modalCtrl.create(SettingsPage);
+    modal.present();
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');

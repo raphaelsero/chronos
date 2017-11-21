@@ -93,7 +93,7 @@
       <ion-grid no-padding>
         <ion-row style="font-size: 12px">   
           <ion-col col-3>
-            <button ion-button clear color="secondary">
+            <button (click)="callNumber(friend.val().phonenumber)" ion-button clear color="secondary">
               <ion-icon ios="ios-call" md="md-call"></ion-icon>
             </button>          
           </ion-col>       
