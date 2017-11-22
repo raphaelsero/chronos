@@ -55,12 +55,22 @@ export class HomePage {
   // }
 
   callNumber(number){
+      number = String(number);    
       console.log("calling " + number);
-      this.call.callNumber(String(number), true);      
+      this.call.callNumber(number, true).then(() => {
+        console.log("call worked");        
+      }).catch((err) => {
+        alert(JSON.stringify(err));
+      });      
   }
 
   sendMessage(number){
-    this.sms.send(number, 'Test');    
+    number = String(number);
+    this.sms.send(number, 'Test').then(() => {
+      console.log("sms worked");        
+    }).catch((err) => {
+      alert(JSON.stringify(err));
+    });      
   }
 
   goToSearch(){
